@@ -223,7 +223,7 @@
 
 #pragma mark- JPUSHRegisterDelegate
 
-// iOS 10 Support
+// iOS 10 Support 在前台自动调用
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
     // Required
     NSDictionary * userInfo = notification.request.content.userInfo;
@@ -233,7 +233,7 @@
     completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以选择设置
 }
 
-// iOS 10 Support
+// iOS 10 Support 在前台或者后台点击推送内容框都会调用
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
     // Required
     NSDictionary * userInfo = response.notification.request.content.userInfo;
